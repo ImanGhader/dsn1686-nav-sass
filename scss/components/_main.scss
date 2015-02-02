@@ -19,7 +19,7 @@ html {
 
 
 body{
-  font-family: sans-serif;
+  font-family: arial, sans-serif;
   @include zero;
   // Hides close button if there is no js
   &.noscript .close-btn,
@@ -28,15 +28,49 @@ body{
   }
 }
 
+.home-banner {
+  background: url("../imgs/home-banner.jpg") no-repeat center center;
+  background-size: cover;
+  padding: 10rem 2rem;
+  p {
+    position: relative;
+    display: block;
+    margin: 0;
+    text-align: left;
+    color: #fff;
+    font-weight: 300;
+    font-size: 30px;
+    text-transform: uppercase;
+    line-height: 1.5;
+  }
+
+  hr {
+    height: 9px;
+    color: #fff;
+    background-color: #fff;
+    width: 40%; 
+    float: left; 
+  }
+}
+
+
 header {
   padding: 0 1em;
   position: relative;
+  color: none;
+  top: 0;
+  h1 {
+    color: #fff;
+    font-weight: 400;
+    position: absolute;
+    z-index: 100;
+  }
 }
 
 .toggle-btn {
   position: absolute;
   right: 1em;
-  top: 0;
+  top: 2em;
 }
 
 .navigation ul {
@@ -44,35 +78,49 @@ header {
   li {
     list-style-type: none;
     &:first-child a{
-      border-top: 1px solid $light-grey;
+      border-top: 2px solid $purple;
     }
   
     a{
       display: block;
-       padding: .5em 1em;
+       @include nav-text($purple, 1.5em, 1em, 400);
        text-align: center;
-       border-bottom: 1px solid $light-grey;
+       border-bottom: 2px solid $purple;
       text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    a:hover {
+      background-color: $purple;
+      color: $white;
+      @include ease(all, 300ms, ease-in-out);
     }
   }// li
+  margin-top: 3em;
 } // ul
 
 .toggle-btn,
 .close-btn {
-  color: $light-grey;
   height: 40px;
   width: 40px;
   span {
       @include hide-text;
   }
   i{
-    border: 1px solid $text-color;
+    color: $white;
+    @include border(2px, solid, $white);
     padding: .5em;
   }
 }
 
 .close-btn{
-  margin: 1em;
+  position: relative;
+  top: 2em;
+  left: 1em;
+  i {
+    color: $purple;
+    @include border(2px, solid, $purple);
+  }
 }
 
 @media only screen and (max-width: 60em){
