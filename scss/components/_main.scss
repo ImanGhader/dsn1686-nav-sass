@@ -33,6 +33,7 @@ body{
   background-size: cover;
   padding: 10rem 2rem;
   p {
+    max-width: 28rem;
     position: relative;
     display: block;
     margin: 0;
@@ -48,7 +49,8 @@ body{
     height: 9px;
     color: #fff;
     background-color: #fff;
-    width: 40%; 
+    width: 40%;
+    max-width: 10rem; 
     float: left; 
   }
 }
@@ -123,7 +125,10 @@ header {
   }
 }
 
-@media only screen and (max-width: 60em){
+@media only screen and (max-width: 60em){ /*960*/
+  .navigation {
+    color: $white;
+  }
   .site-wrapper {
     overflow: hidden;
     position: relative;
@@ -139,6 +144,7 @@ header {
 
     &[data-state="slide-open"] .sliding-canvas{
       transform:translateX(-100%);
+      position: absolute;
     }
     
     &[data-state="slide-open"]{
@@ -155,7 +161,6 @@ header {
     right: -100%;
     min-height: 600px;
   }
-
 } //@media
 
 @media only screen and (min-width: 60em){
@@ -163,9 +168,31 @@ header {
   .close-btn{
     display: none;
   }
+
+  .navigation {
+    display: inline-block;
+    position: absolute;
+    float: center;
+    color: $white; 
+    ul {
+      position: fixed;
+      right: 2em;
+      li{
+        display: inline-block;
+        float: center; 
+        &:first-child a{
+          border-top: none;
+        }
+        a{
+          @include nav-text($white, 1em, 0.5em, 200);
+          border-bottom: 2px solid $white;
+        }
+      }
+    }
+  }
 }
 
-body.noscript .slide-menu {
+body .noscript .slide-menu {
   position: static;
   right: auto;
 }
