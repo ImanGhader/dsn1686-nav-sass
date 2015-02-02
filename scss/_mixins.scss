@@ -26,3 +26,14 @@
   white-space: normal;
   overflow: visible;
 }
+
+@mixin border($pixel, $state, $color){
+  border: $pixel $state $color;
+}
+
+@mixin nav-text($color, $size, $padding, $weight){
+  color: $color;
+  font-size: $size;
+  padding: $padding;
+  font-weight: $weight;
+}
